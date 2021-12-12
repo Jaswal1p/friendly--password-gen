@@ -40,21 +40,9 @@ button.onclick = function() {
       else  {
         window.alert("That is acceptable")
         }
-
+      alert(generatePassword(8));
 } 
 
-function generatePassword(promptLowercase, promptUppercase, promptNumbers, promptSpecial, characterLength) {
-
-  let generatedPassword = '';
-  
-  const typesCount = promptLowercase + promptUppercase + promptNumbers + promptSpecial + characterLength;
-  console.log('typesCount: ', typesCount)
-  
-  const typesArr = [{promptLowercase}, {promptUppercase}, {promptNumbers}, {promptSpecial},  {characterLength}]
-  
-  console.log('typesarr: ', typesArr);
-
-}
 
 function generatePassword(passwordLength) {
   var numberChars = "0123456789";
@@ -93,6 +81,7 @@ function shuffleArray(array) {
   }
   return array;
 }
+
 // Get references to the #generate element
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
@@ -106,5 +95,5 @@ function writePassword() {
 
 }// Add event listener to generate button
 
-alert(generatePassword(8));
+
 
