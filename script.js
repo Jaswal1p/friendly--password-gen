@@ -46,25 +46,41 @@ button.onclick = function() {
 function generatePassword(lower, upper, number, special, length) {
 
   let generatedPassword = '';
+  
   const typesCount = lower +upper + number + special;
   console.log('typesCount: ', typesCount)
+  
   const typesArr = [{lower}, {upper}, {number}, {special}]
   console.log('typesarr: ', typesArr);
+
 }
 
 function generatePassword(passwordLength) {
   var numberChars = "0123456789";
+
   var upperChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
   var lowerChars = "abcdefghijklmnopqrstuvwxyz";
+
   var specialChars = "!@#$%^&*()";
+
   var allChars = numberChars + upperChars + lowerChars + specialChars;
+
   var randPasswordArray = Array(passwordLength);
+
   randPasswordArray[0] = numberChars;
+  
   randPasswordArray[1] = upperChars;
+
   randPasswordArray[2] = lowerChars;
+
   randPasswordArray[3] = specialChars;
+
   randPasswordArray = randPasswordArray.fill(allChars, 4);
-  return shuffleArray(randPasswordArray.map(function(x) { return x[Math.floor(Math.random() * x.length)] })).join('');
+
+  return shuffleArray(randPasswordArray.map(function(x) { 
+    
+    return x[Math.floor(Math.random() * x.length)] })).join('');
 }
 
 function shuffleArray(array) {
