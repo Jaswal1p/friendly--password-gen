@@ -5,6 +5,7 @@ const includeSpecial = document.getElementById("includeSpecial")
 const includeNumber = document.getElementById("includeNumber")
 
 const form = document.getElementById('passwordGeneratorForm')
+const passwordDisplay = document.getElementById('passwordDisplay')
 
 const UPPERCASE_CHAR_CODES = arrayFromLowToHigh(97, 122)
 const LOWERCASE_CHAR_CODES = arrayFromLowToHigh(65, 90)
@@ -20,10 +21,21 @@ form.addEventListener('submit', e => {
   const includeNumber = includeNumberElement.checked
 
   const password = generatePassword(characterAmount, includeUpper, includeLower, includeNumber, includeSpecial)
+  passwordDisplay.innertext = password
 })
 
 function generatePassword(characterAmount, includeUpper, includeLower, includeNumber, includeSpecial) {
-  console.log(UPPERCASE_CHAR_CODES)
+  let charcodes = LOWERCASE_CHAR_CODES
+  if (includeUpper) charcodes = charcodes.concat(UPPERCASE_CHAR_CODES)
+  if (includeNumber) charcodes = charcodes.concat(NUMBER_CHAR_CODES)
+  if (includeSymbols) charcodes = charcodes.concat(SYMBOL_CHAR_CODES)
+
+  const passwordCharacters = []
+  for (let i = 0; i < characterAmount; i++) {
+    const characterCode = charCodes[Math.floor(Math.random() * characterAmount)]
+    passwordCharacters.push(string.fromCharCode(characterCodes))
+  }
+  return passwordCharacters.join('')
 }
 
 function arrayFromLowToHigh(low,high) {
@@ -53,38 +65,39 @@ function arrayFromLowToHigh(low,high) {
 // Alert users for password generator  
 window.alert("Welcome to Password Generator! Press 'Enter'");
 
-  var promptCharacterAmount = window.alert("Password should have minimum 8 characters and cannot have more than 128 chracters.");
-  var promptUpper = window.alert("At least 2 upper case letters");
-  var promptLower = window.alert("At least 2 lower case letters");
-  var promptSpecial = window.alert("At least 2 special characters");
-  var promptNumber = window.alert("At least 2 numbers");
+//  var promptCharacterAmount = window.alert("Password should have minimum 8 characters and cannot have more than 128 chracters.");
+//  var promptUpper = window.alert("At least 2 upper case letters");
+//  var promptLower = window.alert("At least 2 lower case letters");
+//  var promptSpecial = window.alert("At least 2 special characters");
+//  var promptNumber = window.alert("At least 2 numbers");
+
 
 // Generator has following functions - http://www.net-comber.com/charset.html
 
-  function getRandomUpper() {
-    String.characterUpper;
+  function getRandomLower() {
+    return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
   }
 
-  console.log(String.characterUpper);
+  function getRandomUpper() {
+    return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
+  }
 
-  var passLength = window.prompt("How many characters will you include in your password?");
+  function getRandomNumber() {
+    return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
+  }
+
+  function getRandomSymbol() {
+    const symbols = '!@#$%^&*()'
+    return symbols[Math.floor(Math.random() * symbols.length)];
+  }
+
+ 
+
+
+
+  var passLength = window.prompt("Enter 8 to start");
   
-  var characterNames = ["Upper", "Lower" , "Special", "Number"];
-  console.log(characterNames);
-
-  var characterUpper = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
-  console.log(characterUpper);
-
-  var characterLower = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
-  console.log(characterLower);
-
-  var characterNumber = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-  console.log(characterNumber);
-
-  var characterSpecial = ["!", "@", "#", "$", "%", "^", "&", "*"]
-  console.log(characterSpecial);
-
-  if (confirm('Will you include lower case letter?')) {
+    if (confirm('Will you include lower case letter?')) {
     // true 
   } else {
     // false
@@ -123,17 +136,17 @@ function writePassword() {
 
 // if player choses <8 charecters
 if (passwordLength <8) {
-    window.alert("Please pick atleast one more charecter. Remember to follow all criteria");
+    window.alert("Please enter atleast 8 character length. Remember to follow all criteria");
 }
 
 if (passwordLength >128) {
-    window.alert("Please remove atleast one more charecter. Remember to follow all criteria");
+    window.alert("Please enter no more than 128 character length. Remember to follow all criteria");
 }
  
 
   passwordText.value = password;
 
-  var promptUppercase = window.prompt("Would you like to use upper case letter in password? Enter 'YES' or 'NO' to chose.");
+  var promptUppercase = window.alert("You have to use lower case letters by default");
 
   var promptLowercase = window.prompt("Would you like to use lower case letter in password? Enter 'YES' or 'NO' to chose.");
 
