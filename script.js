@@ -43,14 +43,15 @@ button.onclick = function() {
 
 } 
 
-function generatePassword(lower, upper, number, special, length) {
+function generatePassword(promptLowercase, promptUppercase, promptNumbers, promptSpecial, characterLength) {
 
   let generatedPassword = '';
   
-  const typesCount = lower +upper + number + special;
+  const typesCount = promptLowercase + promptUppercase + promptNumbers + promptSpecial + characterLength;
   console.log('typesCount: ', typesCount)
   
-  const typesArr = [{lower}, {upper}, {number}, {special}]
+  const typesArr = [{promptLowercase}, {promptUppercase}, {promptNumbers}, {promptSpecial},  {characterLength}]
+  
   console.log('typesarr: ', typesArr);
 
 }
@@ -69,7 +70,7 @@ function generatePassword(passwordLength) {
   var randPasswordArray = Array(passwordLength);
 
   randPasswordArray[0] = numberChars;
-  
+
   randPasswordArray[1] = upperChars;
 
   randPasswordArray[2] = lowerChars;
