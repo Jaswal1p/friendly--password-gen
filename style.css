@@ -75,7 +75,7 @@ label {
 .form {
   display: grid;
   grid-template-columns: auto auto;
-  row-gap: 1rem;
+  row-gap: 0.5rem;
   column-gap: 10rem;
   justify-content: center;
   align-items: center;
