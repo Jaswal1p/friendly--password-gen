@@ -12,6 +12,7 @@ const LOWERCASE_CHAR_CODES = arrayFromLowToHigh(65, 90)
 const SYMBOL_CHAR_CODES = arrayFromLowToHigh(65, 90)
 const NUMBER_CHAR_CODES = arrayFromLowToHigh(33, 47)
 
+
 form.addEventListener('submit', e => {
   e.preventDefault()
   const characterAmount = CharacterAmountNumber.value
@@ -23,12 +24,13 @@ form.addEventListener('submit', e => {
   const password = generatePassword(characterAmount, includeUpper, includeLower, includeNumber, includeSpecial)
   passwordDisplay.innertext = password
 })
+// Generator has following functions - http://www.net-comber.com/charset.html
 
 function generatePassword(characterAmount, includeUpper, includeLower, includeNumber, includeSpecial) {
   let charcodes = LOWERCASE_CHAR_CODES
   if (includeUpper) charcodes = charcodes.concat(UPPERCASE_CHAR_CODES)
   if (includeNumber) charcodes = charcodes.concat(NUMBER_CHAR_CODES)
-  if (includeSymbols) charcodes = charcodes.concat(SYMBOL_CHAR_CODES)
+  if (includeSymbols) charcodes = charcodes.concat(SYMBOL_CHAR_CODES) 
 
   const passwordCharacters = []
   for (let i = 0; i < characterAmount; i++) {
@@ -70,29 +72,6 @@ window.alert("Welcome to Password Generator! Press 'Enter'");
 //  var promptLower = window.alert("At least 2 lower case letters");
 //  var promptSpecial = window.alert("At least 2 special characters");
 //  var promptNumber = window.alert("At least 2 numbers");
-
-
-// Generator has following functions - http://www.net-comber.com/charset.html
-
-  function getRandomLower() {
-    return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
-  }
-
-  function getRandomUpper() {
-    return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
-  }
-
-  function getRandomNumber() {
-    return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
-  }
-
-  function getRandomSymbol() {
-    const symbols = '!@#$%^&*()'
-    return symbols[Math.floor(Math.random() * symbols.length)];
-  }
-
- 
-
 
 
   var passLength = window.prompt("Enter 8 to start");
