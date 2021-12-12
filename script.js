@@ -1,11 +1,71 @@
+
+const includeUpper = document.getElementById("includeUpper")
+const includeLower = document.getElementById("includeLower")
+const includeSpecial = document.getElementById("includeSpecial")
+const includeNumber = document.getElementById("includeNumber")
+
+const form = document.getElementById('passwordGeneratorForm')
+
+const UPPERCASE_CHAR_CODES = arrayFromLowToHigh(97, 122)
+const LOWERCASE_CHAR_CODES = arrayFromLowToHigh(65, 90)
+const SYMBOL_CHAR_CODES = arrayFromLowToHigh(65, 90)
+const NUMBER_CHAR_CODES = arrayFromLowToHigh(33, 47)
+
+form.addEventListener('submit', e => {
+  e.preventDefault()
+  const characterAmount = CharacterAmountNumber.value
+  const includeUpper = includeUpperElement.checked
+  const includeLower = includeLowerElement.checked
+  const includeSpecial = includeSpecialElement.checked
+  const includeNumber = includeNumberElement.checked
+
+  const password = generatePassword(characterAmount, includeUpper, includeLower, includeNumber, includeSpecial)
+})
+
+function generatePassword(characterAmount, includeUpper, includeLower, includeNumber, includeSpecial) {
+  console.log(UPPERCASE_CHAR_CODES)
+}
+
+function arrayFromLowToHigh(low,high) {
+  const array = []
+  for (let i = low; i <= high; i++) {
+    array.push(i)
+  }
+  return array
+}
+
+// Ended here at 4:55 PM
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Alert users for password generator  
 window.alert("Welcome to Password Generator! Press 'Enter'");
 
-  var promptGenerate = window.alert("Password should have minimum 8 characters and cannot have more than 128 chracters.");
+  var promptCharacterAmount = window.alert("Password should have minimum 8 characters and cannot have more than 128 chracters.");
   var promptUpper = window.alert("At least 2 upper case letters");
   var promptLower = window.alert("At least 2 lower case letters");
   var promptSpecial = window.alert("At least 2 special characters");
   var promptNumber = window.alert("At least 2 numbers");
+
+// Generator has following functions - http://www.net-comber.com/charset.html
+
+  function getRandomUpper() {
+    String.characterUpper;
+  }
+
+  console.log(String.characterUpper);
 
   var passLength = window.prompt("How many characters will you include in your password?");
   
@@ -25,7 +85,7 @@ window.alert("Welcome to Password Generator! Press 'Enter'");
   console.log(characterSpecial);
 
   if (confirm('Will you include lower case letter?')) {
-    // true (paypal.me/andrewdhyder)
+    // true 
   } else {
     // false
   }
@@ -33,22 +93,23 @@ window.alert("Welcome to Password Generator! Press 'Enter'");
   let isExecuted = confirm("Will you include upper-case character?");
 
   if (confirm('Will you include lower case letter?')) {
-    // true (paypal.me/andrewdhyder)
+    // true 
   } else {
     // false
   }
 
   if (confirm('Will you include special character?')) {
-    // true (paypal.me/andrewdhyder)
+    // true 
   } else {
     // false
   }
 
   if (confirm('Will you include numbers?')) {
-    // true (paypal.me/andrewdhyder)
+    // true 
   } else {
     // false
   }
+
 
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
