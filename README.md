@@ -6,4 +6,9 @@ I still have to work on adding variable to generate function. I have to read up 
 
 Besides that the app is functional as MVP.
 
-Following are my links to the github repository and the deployed website link
+Following are my links to the github repository and the deployed website link.
+
+GitHub Repository Link: https://github.com/Jaswal1p/friendly--password-gen.git
+
+Deployed website url Link: https://jaswal1p.github.io/friendly--password-gen/
+
